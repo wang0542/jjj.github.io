@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>果果 · 个人网站</title>
+<meta name="description" content="果果的个人网站 —— 关于我、照片墙、随笔与作品。">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link href="https://fonts.googleapis.cn/css2?family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<!-- 登录提示条：未登录时上传 / 写随笔需要登录 -->
+<div class="login-bar" id="loginBar">
+  <span id="loginBarText">登录后可以上传照片、发布随笔、添加作品</span>
+  <button class="btn btn-sm" id="loginBtn">使用 WorkBuddy 登录</button>
+</div>
+
+<!-- 顶栏 -->
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 8.5l2.2 6.1 6.1 2.2-6.1 2.2-2.2 6.5-2.2-6.5-6.1-2.2 6.1-2.2z" fill="#7DE3F5"/>
+      </svg>
+    </div>
+    <span class="brand-name" id="brandName">果果</span>
+    <span class="brand-tag">PERSONAL ARCHIVE</span>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#about" data-page="about">关于我</a>
+    <a href="#photos" data-page="photos">照片墙</a>
+    <a href="#essays" data-page="essays">随笔</a>
+    <a href="#works" data-page="works">作品</a>
+  </nav>
+
+  <div class="header-right">
+    <span class="stamp">持续更新中 · 2026</span>
+    <button class="btn btn-primary" id="contactBtn">联系我</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 关于我 ============ -->
+  <section class="page active" id="page-about">
+    <div class="about-hero">
+      <div class="about-hero-inner">
+        <div>
+          <span class="chip">关于我 · ABOUT ME</span>
+          <h1 class="hero-title" id="aboutTitle">你好，我是果果</h1>
+          <p class="hero-subtitle" id="aboutTagline">一个正在攒经验的人</p>
+          <p class="hero-intro" id="aboutIntro">用两三句话讲清楚：你是谁、现在在做什么、擅长什么、想找什么样的机会。</p>
+          <div class="hero-hint">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6.6" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M8 7.4v4M8 5.2v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            <span>下面的内容都可以登录后自己改</span>
+          </div>
+          <div class="hero-ctas">
+            <button class="btn btn-primary btn-lg owner-only" id="editProfileBtn">编辑我的介绍</button>
+            <button class="btn btn-ghost btn-lg" id="viewWorksBtn">看我的作品</button>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <div class="portrait" id="portrait">
+            <div class="portrait-empty">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 8.5A2.5 2.5 0 016.5 6h1.2a2 2 0 011.7-1l.5-.4a1 1 0 01.8-.3h5.6a1 1 0 01.8.3l.5.4a2 2 0 011.7 1h1.2A2.5 2.5 0 0120 8.5v8a2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 014 16.5v-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="12" cy="12.5" r="3.4" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              <span>上传你的照片</span>
+            </div>
+          </div>
+          <div class="portrait-cap">
+            <span>这里放你的个人照</span>
+            <span class="tag">120 × 150 推荐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关注方向 -->
+    <div class="section">
+      <div class="section-head">
+        <div class="kicker">WHAT I FOLLOW</div>
+        <h2 class="section-title">我关注的方向</h2>
+        <p class="section-desc">这个站会长出三个方向</p>
+        <button class="btn btn-ghost btn-sm owner-only" id="editTracksBtn" style="margin-top:16px">编辑这三条</button>
+      </div>
+      <div class="track-grid" id="trackGrid"></div>
+    </div>
+
+    <!-- 自我介绍正文 -->
+    <div class="section section-story">
+      <div class="story-wrap">
+        <div class="story-head">
+          <div class="kicker">ABOUT ME</div>
+          <h2 class="section-title">自我介绍</h2>
+          <p class="story-note">比简历长一点的部分。</p>
+        </div>
+        <div class="story-body" id="aboutStory"></div>
+      </div>
+    </div>
+
+    <!-- 基本信息 -->
+    <div class="section section-soft">
+      <div class="section-head">
+        <div class="kicker">QUICK FACTS</div>
+        <h2 class="section-title">基本信息</h2>
+      </div>
+      <div class="fact-grid" id="factGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 照片墙 ============ -->
+  <section class="page" id="page-photos">
+    <div class="page-hero">
+      <div class="kicker">PHOTO WALL</div>
+      <h1 class="page-title">照片墙</h1>
+      <p class="page-desc">走过的路、待过的城市、随手拍下的东西。照片自己上传，随时换。</p>
+    </div>
+
+    <div class="upload-zone owner-only" id="uploadZone">
+      <div class="upload-icon">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 22V7M16 7L10.5 12.5M16 7l5.5 5.5" stroke="#0E8C9E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 20v3.5A2.5 2.5 0 008.5 26h15a2.5 2.5 0 002.5-2.5V20" stroke="#0E8C9E" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="upload-title">点击这里上传照片</div>
+      <div class="upload-sub">支持 JPG / PNG，建议长边 1200px 以上。一次可传多张，拖进虚线框也行。</div>
+      <button class="btn btn-primary" id="chooseFileBtn">选择文件</button>
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp" multiple hidden>
+      <div class="upload-tip">上传后可以拖动排序、加标题和说明</div>
+    </div>
+
+    <div class="photo-grid" id="photoGrid"></div>
+
+    <div class="note-row">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="8.5" stroke="#9A9CAE" stroke-width="1.4"/>
+        <path d="M10 9v5M10 6.2v.6" stroke="#9A9CAE" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>每张照片都可以配一句话说明。点照片本身能放大看，也能直接删。</span>
+    </div>
+  </section>
+
+  <!-- ============ 随笔 ============ -->
+  <section class="page" id="page-essays">
+    <div class="page-hero">
+      <div class="kicker">ESSAYS</div>
+      <h1 class="page-title">随笔</h1>
+      <p class="page-desc">读后笔记、观察记录、想明白的一点小事。不追热点，写自己确实读进去的东西。</p>
+    </div>
+
+    <div class="essay-list" id="essayList"></div>
+
+    <div class="action-row owner-only">
+      <button class="btn btn-primary" id="writeEssayBtn">写新随笔</button>
+      <span class="action-hint" id="essayHint">支持 Markdown，写完点发布就出现在列表最上面</span>
+    </div>
+  </section>
+
+  <!-- ============ 作品 ============ -->
+  <section class="page" id="page-works">
+    <div class="page-hero">
+      <div class="kicker">WORKS</div>
+      <h1 class="page-title">作品</h1>
+      <p class="page-desc">做过的东西。一个知识库、一条政策追踪线、一份算力选题的核查——都是一件件自己做出来的。</p>
+    </div>
+
+    <div class="work-grid" id="workGrid"></div>
+
+    <div class="action-row owner-only">
+      <button class="btn btn-primary" id="addWorkBtn">添加新作品</button>
+      <span class="action-hint" id="workHint">传图片 + 写说明就行，排版我先留好位置</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-name" id="footerName">果果</div>
+      <div class="footer-desc" id="footerDesc">新媒体专业在读 · 个人英语提升中</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#about" data-page="about">关于我</a>
+      <a href="#photos" data-page="photos">照片墙</a>
+      <a href="#essays" data-page="essays">随笔</a>
+      <a href="#works" data-page="works">作品</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span id="footerCopy">2026 果果 · 个人网站</span>
+    <span id="footerUpdate">照片与文字持续补充中</span>
+  </div>
+</footer>
+
+<!-- ============ 通用弹窗 ============ -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal">
+    <h3 class="modal-title" id="modalTitle">标题</h3>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div id="modalFields"></div>
+    <div class="form-error" id="modalError"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="modalCancel">取消</button>
+      <button class="btn btn-primary" id="modalOk">确定</button>
+    </div>
+  </div>
+</div>
+
+<!-- 照片查看 -->
+<div class="modal-backdrop" id="lightboxBackdrop">
+  <div class="modal" style="max-width:900px;padding:16px;background:#0d0e14">
+    <img id="lightboxImg" alt="" style="width:100%;border-radius:16px">
+    <p id="lightboxCap" style="color:#fff;font-size:14px;padding:14px 8px 4px"></p>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="lightboxClose">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

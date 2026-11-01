@@ -1,0 +1,26 @@
+# ===== WorkBuddy 本地状态（不要提交）=====
+.workbuddy/
+*.genie
+
+# ===== 依赖与构建产物 =====
+node_modules/
+dist/
+build/
+.vite/
+
+# ===== 系统与编辑器 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# ===== 日志 =====
+*.log
+npm-debug.log*
+
+# ===== 本地环境变量 =====
+.env
+.env.local
+.env.*.local
