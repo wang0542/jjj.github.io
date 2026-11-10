@@ -5,7 +5,7 @@
 
 **线上地址**：https://guoguo-site.app.workbuddy.host/?sharecode=SU2SV3WGKY
 
-**GitHub 仓库**：https://github.com/wang0542/guoguo-site （源码仓库，含版本历史）
+**源码备份**：WorkBuddy 资料库（`guoguo-site-源码备份-2026-11-10.zip`，含完整 git 提交历史）
 
 ---
 
