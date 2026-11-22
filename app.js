@@ -1,4 +1,4 @@
-/* 果果 · 个人网站 —— 云端数据 + 交互 */
+/* 王国娟 · 个人网站 —— 云端数据 + 交互 */
 
 const CLOUD_CONFIG = {
   endpoint: 'https://guoguo-site.app.workbuddy.host',
@@ -59,7 +59,7 @@ const state = {
 
 /* 默认内容：首次访问、数据库为空时展示，也是用户替换前的示例 */
 const DEFAULT_PROFILE = {
-  display_name: '果果',
+  display_name: '王国娟',
   tagline: '一个正在攒经验的人',
   intro: '用两三句话讲清楚：你是谁、现在在做什么、擅长什么、想找什么样的机会。',
   intro_long: '',
@@ -338,7 +338,7 @@ async function resolvePhotoUrls(rows) {
 
 function renderProfile() {
   const p = state.profile || DEFAULT_PROFILE;
-  const name = p.display_name || '果果';
+  const name = p.display_name || '王国娟';
   $('#brandName').textContent = name;
   $('#footerName').textContent = name;
   $('#aboutTitle').textContent = `你好，我是${name}`;
